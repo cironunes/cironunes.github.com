@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: angularjs | Ciro Nunes]]></title>
+  <link href="http://cironunes.github.com/blog/categories/angularjs/atom.xml" rel="self"/>
+  <link href="http://cironunes.github.com/"/>
+  <updated>2013-08-07T21:11:23-03:00</updated>
+  <id>http://cironunes.github.com/</id>
+  <author>
+    <name><![CDATA[Ciro Nunes]]></name>
+    <email><![CDATA[ciroanunes@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS: Melhores práticas - Parte I: Iniciando projetos]]></title>
+    <link href="http://cironunes.github.com/angularjs-melhores-praticas-parte-I-bootstrap/"/>
+    <updated>2013-03-10T16:01:00-03:00</updated>
+    <id>http://cironunes.github.com/angularjs-melhores-praticas-parte-I-bootstrap</id>
+    <content type="html"><![CDATA[<p><img class="center" src="/images/posts/cover-bestpratices-bootstrap.jpg"></p>
+
+<p>Melhores práticas são como fórmulas mágicas para ajudar na organização do seu projeto, documentadas por desenvolvedores que tiveram sucesso usando elas em diversas situações.</p>
+
+<p>Nesta série vou compartilhar algumas técnicas que tornam meu trabalho cada vez mais simples e divertido.</p>
+
+<p>Essas práticas foram baseadas <a href="http://www.youtube.com/watch?v=ZhfUv0spHCY&amp;feature=g-user-u">neste vídeo</a> e nas minhas experiências diárias.</p>
+
+<!-- more -->
+
+
+<h2>Por que eu preciso organizar meu projeto?</h2>
+
+<ul>
+<li><strong>Facilitar a manutenção</strong></li>
+<li><strong>Aumentar a velocidade de desenvolvimento</strong></li>
+<li><strong>Identificar problemas antecipadamente</strong></li>
+</ul>
+
+
+<h2>Navegue pela série</h2>
+
+<ul>
+<li><a href="/angularjs-melhores-praticas-parte-I-bootstrap">Parte I - Iniciando um projeto e a estrutura de diretórios</a></li>
+<li><a href="/angularjs-melhores-praticas-parte-II-carregamento">Parte II - Carregamento de scripts</a></li>
+<li>Parte III - Dicas e truques</li>
+<li>Parte IV - MVC</li>
+</ul>
+
+
+<h2>Iniciar um projeto e a estrutura de diretórios</h2>
+
+<p>Esta é a etapa mais importante, e pode definir o sucesso ou fracasso do nosso projeto. Aqui surgem várias dúvidas e teremos bastante trabalho:</p>
+
+<ul>
+<li>Como organizar a estrutura de diretórios? (Criar os diretórios manualmente)</li>
+<li>Quais serão as dependências? (Baixar cada uma e adicionar manualmente no projeto)</li>
+<li>Como vou preparar pacotes para produção? (Instalar ferramenta de build e configurá-la manualmente)</li>
+</ul>
+
+
+<p>Não reinvente a roda! Existem vários "bootstraps" para fazer estas coisas de forma automatizada, padronizada e seguindo as boas práticas:</p>
+
+<h2><a href="http://github.com/angular/angular-seed">Angular Seed</a> e variações (<a href="http://github.com/btford/angular-socket-io-seed/">Express + Socket.IO</a>, <a href="http://github.com/btford/angular-express-seed">Express</a>)*</h2>
+
+<p>Mantidos pelos próprios membros do time do Angular, os 'seeds' são repositórios que você simplesmente clona:</p>
+
+<p><code>
+$ git clone git@github.com:angular/angular-seed.git
+</code></p>
+
+<p>apaga as referências para o repositório original:</p>
+
+<p><code>
+$ rm -rf .git
+</code></p>
+
+<p>E está pronto para começar seu projeto com:</p>
+
+<ul>
+<li><strong>Estrutura de diretórios bem organizada e padronizada</strong>: o que facilita encontrar as coisas até mesmo se for a primeira vez que alguem esteja vendo seu projeto.</li>
+<li><strong>Suites de testes unitários e <a href="http://docs.angularjs.org/guide/dev_guide.e2e-testing">e2e</a></strong></li>
+<li><strong>Scripts para rodar os testes inclusive de forma contínua.</strong></li>
+</ul>
+
+
+<p><em>*Os seeds de Express e Socket.IO não vem com a suite de testes, mas é só você copiar do seed principal :)</em></p>
+
+<p>Incrível! Mas pode ser ainda melhor, atualmente o time do Angular recomanda o uso do Yeoman.</p>
+
+<h2>Yeoman</h2>
+
+<p><img class="center" src="/images/posts/logo-yeoman.png">
+O <a href="http://yeoman.io">Yeoman</a> é uma ferramenta para facilitar nosso workflow, independente das libraries e frameworks Front-end que vamos usar. Ele utiliza de outras ferramentas incríveis: <a href="http://gruntjs.com/">Grunt</a> e <a href="http://twitter.github.com/bower/">Bower</a>, para te ajudar a:</p>
+
+<ul>
+<li><strong>Inicializar projetos</strong>: criar toda a estrutura de diretórios e configurar a suite de testes</li>
+<li><strong>Gerencias dependencias</strong>: adicionar, remover e atualizar recursos</li>
+<li><strong>Criar pacotes</strong>: preparar seus releases para testes ou para produção</li>
+<li><strong>Executar testes automatizados</strong></li>
+<li><strong>Manter recursos do framework</strong>: no caso do AngularJS, criar controllers, views, rotas, etc.</li>
+</ul>
+
+
+<p>Depois de instalar o Yeoman (veja como instalar no <a href="http://yeoman.io">site oficial</a>), instale os generators para o Angular:</p>
+
+<p><code>
+$ npm install generator-angular generator-testacular
+</code></p>
+
+<p>Inicie um novo projeto:</p>
+
+<p><code>
+$ yo angular [nome-da-app]
+</code></p>
+
+<p>O Yeoman vai te perguntar se você deseja usar o Twitter Bootstrap. Se sim, prefere uma versão com o Compass? (Eu particularmente prefiro). Depois se quer incluir os módulos: <a href="http://docs.angularjs.org/api/ngResource.$resource"><code>angular-resource</code></a>, <a href="http://docs.angularjs.org/api/ngCookies.$cookies"><code>angular-cookies</code></a>, <a href="http://docs.angularjs.org/api/ngSanitize.$sanitize"><code>angular-sanitize</code></a>. Recomendo que responda sim para todos, mas você pode incluí-los a qualquer momento usando o Bower.</p>
+
+<p>Feito isso, instale as depencias:</p>
+
+<p><code>
+$ npm install &amp;&amp; bower install --dev
+</code></p>
+
+<p>Instale o <code>angular-mocks</code> para os testes funcionarem corretamente:</p>
+
+<p><code>
+$ bower install angular-mocks
+</code></p>
+
+<p>Então você já pode rodar seus testes:</p>
+
+<p><code>
+$ grunt test
+</code></p>
+
+<p>Rodar sua aplicação em ambiente local:</p>
+
+<p><code>
+$ grunt server
+</code></p>
+
+<p>E gerar um pacote para produção:</p>
+
+<p><code>
+$ grunt
+</code></p>
+
+<p>Além disso você pode usar os geradores para criar seus controllers, views, services, directives, filters e routes:</p>
+
+<p><code>
+$ yo angular:controller myCtrl
+$ yo angular:view myView
+$ yo angular:service myService
+...
+</code>
+O mais interessante é que além de criar os arquivos e incluí-los no meu HTML automaticamente com os nomes e lugares corretos, ele já cria a <code>spec</code>correspondente na minha suite de testes, incentivando sempre a fazer <a href="http://en.wikipedia.org/wiki/Test_Driven_Development">TDD</a>.</p>
+
+<p>Dúvidas? Não concorda com algo? Mande um <a href="mailto:ciroanunes@gmail.com">e-mail</a> ou deixe um comentário, só não deixe de me notificar! :)</p>
+
+<p>Por hoje é só!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tunando o browser com o AngularJS]]></title>
+    <link href="http://cironunes.github.com/tunando-o-browser-com-o-angularjs/"/>
+    <updated>2013-03-02T07:58:00-03:00</updated>
+    <id>http://cironunes.github.com/tunando-o-browser-com-o-angularjs</id>
+    <content type="html"><![CDATA[<p>No início do ano, a convite do meu amigo <a href="http://twitter.com/felquis">@felquis</a> participei de um <a href="http://devcastbrasil.com">DevCast</a> para mostrar como o <a href="http://angularjs.org">AngularJS</a> veio para tornar o desenvolvimento de aplicações web simples e divertido.</p>
+
+<p>Confira o <a href="http://devcastbrasil.com/videos/tunando-o-browser-com-angularjs/">post sobre este DevCast no DevCast Brasil</a></p>
+
+<p>Confira o vídeo abaixo:</p>
+
+<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/Ph9hVLTmF2E "></iframe></div></p>
+]]></content>
+  </entry>
+  
+</feed>
