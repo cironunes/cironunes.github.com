@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS: Melhores práticas - Parte II: Carregamento de scripts - Ciro Nunes</title>
+  <meta name="author" content="Ciro Nunes">
+
+  
+  <meta name="description" content="Baixar recursos (HTML, CSS, scripts, imagens) tem um custo alto em termos de performance das aplicações. Principalmente scripts, que podem parar &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ciro Nunes" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38962478-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+</hgroup>
+
+</header>
+  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss email">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+    <li><a href="ciroanunes@gmail.com" rel="subscribe-email" title="subscribe via email">Email</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:cironunes.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav> -->
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">AngularJS: Melhores práticas - Parte II: Carregamento de scripts</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T21:30:00-03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="center" src="/images/posts/cover-bestpratices-loading.jpg"></p>
+
+<p>Baixar recursos (HTML, CSS, scripts, imagens) tem um custo alto em termos de performance das aplicações. Principalmente scripts, que podem parar completamente o carregamento da página enquanto são baixados e executados pela engine de JavaScript do browser.</p>
+
+<p>Nesta parte vamos focar em estratégias para carregá-los e como a flexibilidade do Angular nos possibilita fazê-lo de forma performática.</p>
+
+<!-- more -->
+
+
+<h2>Navegue pela série</h2>
+
+<ul>
+<li><a href="/angularjs-melhores-praticas-parte-I-bootstrap">Parte I - Iniciando um projeto e a estrutura de diretórios</a></li>
+<li><a href="/angularjs-melhores-praticas-parte-II-carregamento">Parte II - Carregamento de scripts</a></li>
+<li>Parte III - Dicas e truques</li>
+<li>Parte IV - MVC</li>
+</ul>
+
+
+<h2>Regra nº 1: Coloque seus scripts no rodapé</h2>
+
+<p>Desta maneira você evita que o carregamento da página seja bloqueado enquanto eles são baixados, &#8220;parseados&#8221; e executados. <a href="http://developer.yahoo.com/performance/rules.html#js_bottom">Saiba mais</a></p>
+
+<h2>Regra nº 2: Use um CDN em produção</h2>
+
+<p>Fazendo isso, não otimizamos apenas nossa aplicação, mas a de todos que fizerem o mesmo. <a href="http://developer.yahoo.com/performance/rules.html#cdn">Saiba mais</a></p>
+
+<p>O Angular está hospedado no <a href="https://developers.google.com/speed/libraries/devguide?hl=pt-PT#angularjs">CDN do Google</a>, basta incluí-lo no projeto, sempre no rodapé] e estaremos prontos para começar.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Recomendo ter o arquivo no projeto também, para poder trabalhar offline e se aventurar pelo código! :)</p>
+
+<h2>Carregue seus scripts de forma assíncrona e gerencie suas dependencias</h2>
+
+<p><img class="center" src="/images/posts/logo-requirejs.png"></p>
+
+<p>Caso prefira, saiba mais sobre os <a href="https://gist.github.com/desandro/4686136">benefícios de fazê-lo</a> antes de continuar.</p>
+
+<p>Para conseguirmos fazer o carregamento assíncrono dos nossos scripts, primeiro precisamos entender como funcionar o &#8220;startup&#8221; do Angular.</p>
+
+<h2>Angular startup</h2>
+
+<p>Sua aplicação pode ser iniciada de duas formas:</p>
+
+<p><strong>Automaticamente:</strong> via <code>ng-app</code></p>
+
+<div><script src='https://gist.github.com/5229926.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>você pode passar também um nome opicional para o módulo</p>
+
+<div><script src='https://gist.github.com/5229865.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<ul>
+<li><strong>manualmente:</strong> via <code>angular.bootstrap</code></li>
+</ul>
+
+
+<div><script src='https://gist.github.com/5229948.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>Essa flexibilidade, nos possibilita carregar nossos recursos como bem entendermos, e quando estivermos prontos (callback) fazer o Angular <a href="http://docs.angularjs.org/api/ng.$compile">ler</a> nosso HTML e dar vida as nossas diretivas.</p>
+
+<p>Atenção: Para que possamos carregar nossos scripts em qualquer ordem, é necessário incluir o script a seguir, antes do carregamento do nosso módulo principal do RequireJS.</p>
+
+<div><script src='https://gist.github.com/5431503.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>Depois basta fazer a chamada principal</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">data</span><span class="o">-</span><span class="nx">main</span><span class="o">=</span><span class="s2">&quot;js/main.js&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;js/libs/require.js&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>O arquivo <code>main.js</code> deve se parecer com este:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">requirejs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+</span><span class='line'>    <span class="nx">baseUrl</span><span class="o">:</span> <span class="s1">&#39;js/libs&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">paths</span><span class="o">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">app</span><span class="o">:</span> <span class="s1">&#39;../&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">requirejs</span><span class="p">([</span>
+</span><span class='line'>    <span class="s1">&#39;angular&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;app/app&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;app/controllers&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;app/filters&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;app/services&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;app/directives&#39;</span>
+</span><span class='line'>    <span class="p">],</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">angular</span><span class="p">.</span><span class="nx">bootstrap</span><span class="p">(</span><span class="nb">document</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;myApp&#39;</span><span class="p">]);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Onde carregamos nossas dependências de forma assíncrona, e depois de tudo pronto, usamos o <code>angular.bootstrap</code> para fazer o startup manual.</p>
+
+<p>Mais uma vez, recomendo fortemente dar uma olhada no código do <a href="https://github.com/cironunes/ng-require">demo</a> para um entendimento mais claro.</p>
+
+<p>Dúvidas? Não concorda com algo? Mande um e-mail ou deixe um comentário, só não deixe de me notificar! :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Ciro Nunes</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-14T21:30:00-03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/best-pratices/'>best pratices</a>, <a class='category' href='/blog/categories/requirejs/'>requirejs</a>, <a class='category' href='/blog/categories/workflow/'>workflow</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/" data-via="cironunesdev" data-counturl="http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/angularjs-melhores-praticas-parte-I-bootstrap/" title="Previous Post: AngularJS: Melhores práticas - Parte I: Iniciando projetos">&laquo; AngularJS: Melhores práticas - Parte I: Iniciando projetos</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+    <div style="margin-top: 5px; text-align: center;">
+        <img src="/images/me.jpg" alt="">
+    </div>
+
+    <h1 class="brand">
+    <a href="/">
+      Ciro Nunes
+      <small>Front-end Engineer</small>
+    </a>
+    </h1>
+
+    <ul class="nav-main">
+      <li>
+        <a href="/">Blog</a>
+      </li>
+
+      <li>
+        <a href="/talks">Talks</a>
+      </li>
+
+      <li>
+        <a href="/about">About</a>
+      </li>
+    </ul>
+</section>
+
+<section>
+ <ul id="recent_posts" style="text-align: center;">
+      <li class="post" style="border: 0; box-shadow: none;">
+      <a href="http://github.com/cironunes/"><img width="59" src="/images/metro-github.png"></a>
+      <a href="http://twitter.com/cironunesdev/"><img width="59" src="/images/metro-twitter.png"></a>
+      <a href="http://www.linkedin.com/profile/view?id=112850172&authType=name&authToken=N_xi&locale=pt_BR&pvs=pp&trk=ppro_viewmore"><img width="59" src="/images/metro-linkedin.png"></a>
+      <a href="https://plus.google.com/102454271023172372383/"><img width="59" src="/images/metro-gplus.png"></a>
+      <a href="http://facebook.com/cironunesdev/"><img width="59" src="/images/metro-facebook.png"></a>
+      <a href="http://cironunes.github.com/archives/"><img width="59" src="/images/metro-archive.png"></a>
+      <a href="http://cironunes.github.com/atom.xml"><img width="59" src="/images/metro-rss.png"></a>
+      <a href="mailto:ciroanunes@gmail.com"><img width="59" src="/images/metro-email.png"></a>
+      </li>
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Ciro Nunes -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'cironunes';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/';
+        var disqus_url = 'http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
