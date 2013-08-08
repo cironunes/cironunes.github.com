@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angularjs | Ciro Nunes]]></title>
   <link href="http://cironunes.github.com/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://cironunes.github.com/"/>
-  <updated>2013-08-07T21:29:06-03:00</updated>
+  <updated>2013-08-07T21:35:50-03:00</updated>
   <id>http://cironunes.github.com/</id>
   <author>
     <name><![CDATA[Ciro Nunes]]></name>
@@ -63,13 +63,15 @@
 
 <p>Recomendo ter o arquivo no projeto também, para poder trabalhar offline e se aventurar pelo código! :)</p>
 
-<h2>Carregue seus scripts de forma assíncrona e gerencie suas dependencias</h2>
+<h2>Bônus: Carregue seus scripts de forma assíncrona e gerencie suas dependencias</h2>
 
 <p><img class="center" src="/images/posts/logo-requirejs.png"></p>
 
 <p>Caso prefira, saiba mais sobre os <a href="https://gist.github.com/desandro/4686136">benefícios de fazê-lo</a> antes de continuar.</p>
 
-<p>Para conseguirmos fazer o carregamento assíncrono dos nossos scripts, primeiro precisamos entender como funcionar o "startup" do Angular.</p>
+<p>Este <a href="https://github.com/cironunes/ng-require">demo</a> será usado para facilitar a explicação. É indispensável cloná-lo e navegar pelo código para entender como funciona.</p>
+
+<p>Para conseguirmos fazer o carregamento assíncrono dos nossos scripts, primeiro precisamos entender como funcionar o “startup” do Angular.</p>
 
 <h2>Angular startup</h2>
 
@@ -96,9 +98,9 @@
 <noscript><pre><code></code></pre></noscript></div>
 </p>
 
-<p>Essa flexibilidade, nos possibilita carregar nossos recursos como bem entendermos, e quando estivermos prontos (callback) fazer o Angular <a href="http://docs.angularjs.org/api/ng.$compile">ler</a> nosso HTML e dar vida as nossas diretivas.</p>
+<p>Essa flexibilidade, nos possibilita carregar nossos recursos como bem entendermos, e quando estivermos prontos (callback) fazer o Angular <a href="http://docs.angularjs.org/api/ng.$compile">ler nosso HTML</a> e dar vida as nossas diretivas.</p>
 
-<p>Atenção: Para que possamos carregar nossos scripts em qualquer ordem, é necessário incluir o script a seguir, antes do carregamento do nosso módulo principal do RequireJS.</p>
+<p><strong>Atenção:</strong> Para que possamos carregar nossos scripts em qualquer ordem, é necessário incluir o script a seguir, antes do carregamento do nosso módulo principal do RequireJS.</p>
 
 <p><div><script src='https://gist.github.com/5431503.js'></script>
 <noscript><pre><code></code></pre></noscript></div>
