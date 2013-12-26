@@ -4,7 +4,7 @@
   <title><![CDATA[Category: yeoman | Ciro Nunes]]></title>
   <link href="http://cironunes.github.com/blog/categories/yeoman/atom.xml" rel="self"/>
   <link href="http://cironunes.github.com/"/>
-  <updated>2013-12-25T15:53:52-02:00</updated>
+  <updated>2013-12-26T21:40:31-02:00</updated>
   <id>http://cironunes.github.com/</id>
   <author>
     <name><![CDATA[Ciro Nunes]]></name>
@@ -43,7 +43,7 @@
 <ul>
 <li><a href="/angularjs-melhores-praticas-parte-I-bootstrap">Parte I - Iniciando um projeto e a estrutura de diretórios</a></li>
 <li><a href="/angularjs-melhores-praticas-parte-II-carregamento">Parte II - Carregamento de scripts</a></li>
-<li>Parte III - Dicas e truques</li>
+<li><a href="/angularjs-melhores-praticas-parte-III-tips-tricks">Parte III - Dicas e truques</a></li>
 <li>Parte IV - MVC</li>
 </ul>
 
