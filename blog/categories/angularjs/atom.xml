@@ -4,7 +4,7 @@
   <title><![CDATA[Category: angularjs | Ciro Nunes]]></title>
   <link href="http://cironunes.github.com/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://cironunes.github.com/"/>
-  <updated>2014-01-13T23:29:35-02:00</updated>
+  <updated>2014-05-02T01:02:39-03:00</updated>
   <id>http://cironunes.github.com/</id>
   <author>
     <name><![CDATA[Ciro Nunes]]></name>
@@ -32,7 +32,7 @@
 <ul>
 <li><a href="/angularjs-melhores-praticas-parte-I-bootstrap">Parte I - Iniciando um projeto e a estrutura de diretórios</a></li>
 <li><a href="/angularjs-melhores-praticas-parte-II-carregamento">Parte II - Carregamento de scripts</a></li>
-<li><a href="/angularjs-melhores-praticas-parte-III-tips-tricks">Parte III - Dicas e truques</a></li>
+<li>Parte III - Dicas e truques</li>
 <li>Parte IV - MVC</li>
 </ul>
 
@@ -181,7 +181,7 @@ paths: {
 <ul>
 <li><a href="/angularjs-melhores-praticas-parte-I-bootstrap">Parte I - Iniciando um projeto e a estrutura de diretórios</a></li>
 <li><a href="/angularjs-melhores-praticas-parte-II-carregamento">Parte II - Carregamento de scripts</a></li>
-<li><a href="/angularjs-melhores-praticas-parte-III-tips-tricks">Parte III - Dicas e truques</a></li>
+<li>Parte III - Dicas e truques</li>
 <li>Parte IV - MVC</li>
 </ul>
 
