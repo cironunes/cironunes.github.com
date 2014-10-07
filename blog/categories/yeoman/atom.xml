@@ -4,7 +4,7 @@
   <title><![CDATA[Category: yeoman | Ciro Nunes]]></title>
   <link href="http://cironunes.github.com/blog/categories/yeoman/atom.xml" rel="self"/>
   <link href="http://cironunes.github.com/"/>
-  <updated>2014-10-05T19:00:13-03:00</updated>
+  <updated>2014-10-07T11:25:43-03:00</updated>
   <id>http://cironunes.github.com/</id>
   <author>
     <name><![CDATA[Ciro Nunes]]></name>
@@ -50,7 +50,7 @@
 
 <h2>Iniciar um projeto e a estrutura de diretórios</h2>
 
-<p>Esta é a etapa mais importante, e pode definir o sucesso ou fracasso do nosso projeto. Aqui surgem várias dúvidas e teremos bastante trabalho:</p>
+<p>Esta é uma etapa simples, mas que pode definir o sucesso ou fracasso do nosso projeto. Portanto, a primeira parte da série é destinada a responder algumas dúvidas:</p>
 
 <ul>
 <li>Como organizar a estrutura de diretórios? (Criar os diretórios manualmente)</li>
