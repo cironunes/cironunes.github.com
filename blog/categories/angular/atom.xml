@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: angular | Ciro Nunes]]></title>
+  <link href="http://cironunes.github.com/blog/categories/angular/atom.xml" rel="self"/>
+  <link href="http://cironunes.github.com/"/>
+  <updated>2014-10-20T16:48:17-02:00</updated>
+  <id>http://cironunes.github.com/</id>
+  <author>
+    <name><![CDATA[Ciro Nunes]]></name>
+    <email><![CDATA[ciroanunes@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[speeding-up-angularjs-even-more]]></title>
+    <link href="http://cironunes.github.com/speeding-up-angularjs-even-more/"/>
+    <updated>2014-10-11T00:15:00-03:00</updated>
+    <id>http://cironunes.github.com/speeding-up-angularjs-even-more</id>
+    <content type="html"><![CDATA[<p>We'll agree that AngularJS is awesome. One of the most handy features of the framework is the data-binding mechanism that avoid us to write a lot of code for wiring up our models and views together.</p>
+
+<p>What you should keep in mind is that the data-binding awesomeness is based on $digest cycles, which are a basic dirty checking (if there's a change in the value, then fires the change event).</p>
+
+<h2>The $digest cycle</h2>
+
+<p>To understand how the $digest cycle works, let's consider the following example:</p>
+
+<blockquote><p>index.html</p></blockquote>
+
+<p>```
+<body ng-app="myApp"></p>
+
+<pre><code>&lt;div ng-controller="MyCtrl"&gt;
+    &lt;input type="text" placeholder="Name:" ng-model="name"&gt;
+    &lt;h1&gt;Hello, &lt;h1&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p></body>
+```</p>
+
+<blockquote><p>script.js</p></blockquote>
+
+<p>```
+'use strict';</p>
+
+<p>angular.module('myApp', [])</p>
+
+<pre><code>.controller('MyCtrl', function($scope) {
+    $scope.name = 'Ciro';
+});
+</code></pre>
+
+<p>```</p>
+
+<p>The <code>$scope</code>, which is the "glue" between the controller and the view, has a <code>$$watchers</code> list. So every time that a new property is created in the scope or an expression is placed in the view, a new <code>$watcher</code> is added to the list.</p>
+
+<p><img src="http://f.cl.ly/items/0X1I2D3P2j2a3X2V1v2T/Screen%20Shot%202014-10-11%20at%201.08.57%20AM.png" alt="" /></p>
+
+<h2>Reduce the number of $$watchers</h2>
+
+<h2>Delay the $digest cycle</h2>
+
+<h2>Load modules on demand</h2>
+
+<h2>Disable debug data in production</h2>
+]]></content>
+  </entry>
+  
+</feed>

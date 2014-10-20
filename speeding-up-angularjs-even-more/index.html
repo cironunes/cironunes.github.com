@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Ciro Nunes</title>
+  <title>speeding-up-angularjs-even-more - Ciro Nunes</title>
   <meta name="author" content="Ciro Nunes">
 
   
-  <meta name="description" content="Blog Archive 2014 speeding-up-angularjs-even-more
-Oct 11 2014 posted in angular, angularjs, best practices, performance 2013 AngularJS: Melhores &hellip;">
+  <meta name="description" content="We&#8217;ll agree that AngularJS is awesome. One of the most handy features of the framework is the data-binding mechanism that avoid us to write a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Oct 11 2014 posted in angular, angularjs, best practices, performance 2013 Angul
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://cironunes.github.com/blog/archives/">
+  <link rel="canonical" href="http://cironunes.github.com/speeding-up-angularjs-even-more/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
    <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
@@ -77,81 +76,148 @@ Oct 11 2014 posted in angular, angularjs, best practices, performance 2013 Angul
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">speeding-up-angularjs-even-more</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-11T00:15:00-03:00" pubdate data-updated="true">Oct 11<span>th</span>, 2014</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>We&#8217;ll agree that AngularJS is awesome. One of the most handy features of the framework is the data-binding mechanism that avoid us to write a lot of code for wiring up our models and views together.</p>
 
-  
-  <h2>2014</h2>
+<p>What you should keep in mind is that the data-binding awesomeness is based on $digest cycles, which are a basic dirty checking (if there&#8217;s a change in the value, then fires the change event).</p>
 
-<article>
-  
-<h1><a href="/speeding-up-angularjs-even-more/">speeding-up-angularjs-even-more</a></h1>
-<time datetime="2014-10-11T00:15:00-03:00" pubdate><span class='month'>Oct</span> <span class='day'>11</span> <span class='year'>2014</span></time>
+<h2>The $digest cycle</h2>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/angular/'>angular</a>, <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/best-practices/'>best practices</a>, <a class='category' href='/blog/categories/performance/'>performance</a></span>
-</footer>
+<p>To understand how the $digest cycle works, let&#8217;s consider the following example:</p>
 
+<blockquote><p>index.html</p></blockquote>
 
-</article>
-
-
-
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/angularjs-melhores-praticas-parte-II-carregamento/">AngularJS: Melhores práticas - Parte II: Carregamento de scripts</a></h1>
-<time datetime="2013-03-14T21:30:00-03:00" pubdate><span class='month'>Mar</span> <span class='day'>14</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/best-pratices/'>best pratices</a>, <a class='category' href='/blog/categories/requirejs/'>requirejs</a>, <a class='category' href='/blog/categories/workflow/'>workflow</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;body ng-app="myApp"&gt;
+</span><span class='line'>  &lt;div ng-controller="MyCtrl"&gt;
+</span><span class='line'>      &lt;input type="text" placeholder="Name:" ng-model="name"&gt;
+</span><span class='line'>      &lt;h1&gt;Hello, &lt;h1&gt;
+</span><span class='line'>  &lt;/div&gt;
+</span><span class='line'>&lt;/body&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<blockquote><p>script.js</p></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>'use strict';
+</span><span class='line'>
+</span><span class='line'>angular.module('myApp', [])
+</span><span class='line'>  .controller('MyCtrl', function($scope) {
+</span><span class='line'>      $scope.name = 'Ciro';
+</span><span class='line'>  });
+</span></code></pre></td></tr></table></div></figure>
 
 
+<p>The <code>$scope</code>, which is the &#8220;glue&#8221; between the controller and the view, has a <code>$$watchers</code> list. So every time that a new property is created in the scope or an expression is placed in the view, a new <code>$watcher</code> is added to the list.</p>
 
-<article>
-  
-<h1><a href="/angularjs-melhores-praticas-parte-I-bootstrap/">AngularJS: Melhores práticas - Parte I: Iniciando projetos</a></h1>
-<time datetime="2013-03-10T16:01:00-03:00" pubdate><span class='month'>Mar</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+<p><img src="http://f.cl.ly/items/0X1I2D3P2j2a3X2V1v2T/Screen%20Shot%202014-10-11%20at%201.08.57%20AM.png" alt="" /></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/best-pratices/'>best pratices</a>, <a class='category' href='/blog/categories/workflow/'>workflow</a>, <a class='category' href='/blog/categories/yeoman/'>yeoman</a></span>
-</footer>
+<h2>Reduce the number of $$watchers</h2>
 
+<h2>Delay the $digest cycle</h2>
 
-</article>
+<h2>Load modules on demand</h2>
 
-
-
-<article>
-  
-<h1><a href="/tunando-o-browser-com-o-angularjs/">Tunando o browser com o AngularJS</a></h1>
-<time datetime="2013-03-02T07:58:00-03:00" pubdate><span class='month'>Mar</span> <span class='day'>02</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/angularjs/'>angularjs</a></span>
-</footer>
-
-
-</article>
-
+<h2>Disable debug data in production</h2>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Ciro Nunes</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-11T00:15:00-03:00" pubdate data-updated="true">Oct 11<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/angular/'>angular</a>, <a class='category' href='/blog/categories/angularjs/'>angularjs</a>, <a class='category' href='/blog/categories/best-practices/'>best practices</a>, <a class='category' href='/blog/categories/performance/'>performance</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://cironunes.github.com/speeding-up-angularjs-even-more/" data-via="cironunesdev" data-counturl="http://cironunes.github.com/speeding-up-angularjs-even-more/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/angularjs-melhores-praticas-parte-II-carregamento/" title="Previous Post: AngularJS: Melhores práticas - Parte II: Carregamento de scripts">&laquo; AngularJS: Melhores práticas - Parte II: Carregamento de scripts</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -217,7 +283,10 @@ Oct 11 2014 posted in angular, angularjs, best practices, performance 2013 Angul
       var disqus_shortname = 'cironunes';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cironunes.github.com/speeding-up-angularjs-even-more/';
+        var disqus_url = 'http://cironunes.github.com/speeding-up-angularjs-even-more/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
