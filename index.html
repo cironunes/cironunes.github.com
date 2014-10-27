@@ -9,7 +9,7 @@
   <meta name="author" content="Ciro Nunes">
 
   
-  <meta name="description" content="We&#8217;ll agree that AngularJS is awesome. One of the most handy features of the framework is the data-binding mechanism that avoid us to write a &hellip;">
+  <meta name="description" content="Baixar recursos (HTML, CSS, scripts, imagens) tem um custo alto em termos de performance das aplicações. Principalmente scripts, que podem parar &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,95 +77,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/speeding-up-angularjs-even-more/">speeding-up-angularjs-even-more</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-10-11T00:15:00-03:00" pubdate data-updated="true">Oct 11<span>th</span>, 2014</time>
-        
-         | <a href="/speeding-up-angularjs-even-more/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We&#8217;ll agree that AngularJS is awesome. One of the most handy features of the framework is the data-binding mechanism that avoid us to write a lot of code for wiring up our models and views together.</p>
-
-<p>What you should keep in mind is that the data-binding awesomeness is based on $digest cycles, which are a basic dirty checking (if there&#8217;s a change in the value, then fires the change event).</p>
-
-<h2>The $digest cycle</h2>
-
-<p>To understand how the $digest cycle works, let&#8217;s consider the following example:</p>
-
-<blockquote><p>index.html</p></blockquote>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;body ng-app="myApp"&gt;
-</span><span class='line'>  &lt;div ng-controller="MyCtrl"&gt;
-</span><span class='line'>      &lt;input type="text" placeholder="Name:" ng-model="name"&gt;
-</span><span class='line'>      &lt;h1&gt;Hello, &lt;h1&gt;
-</span><span class='line'>  &lt;/div&gt;
-</span><span class='line'>&lt;/body&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><p>script.js</p></blockquote>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>'use strict';
-</span><span class='line'>
-</span><span class='line'>angular.module('myApp', [])
-</span><span class='line'>  .controller('MyCtrl', function($scope) {
-</span><span class='line'>      $scope.name = 'Ciro';
-</span><span class='line'>  });
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <code>$scope</code>, which is the &#8220;glue&#8221; between the controller and the view, has a <code>$$watchers</code> list. So every time that a new property is created in the scope or an expression is placed in the view, a new <code>$watcher</code> is added to the list.</p>
-
-<p><img src="http://f.cl.ly/items/0X1I2D3P2j2a3X2V1v2T/Screen%20Shot%202014-10-11%20at%201.08.57%20AM.png" alt="" /></p>
-
-<h2>Reduce the number of $$watchers</h2>
-
-<h2>Delay the $digest cycle</h2>
-
-<h2>Load modules on demand</h2>
-
-<h2>Disable debug data in production</h2>
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
