@@ -4,7 +4,7 @@
   <title><![CDATA[Ciro Nunes]]></title>
   <link href="http://cironunes.github.com/atom.xml" rel="self"/>
   <link href="http://cironunes.github.com/"/>
-  <updated>2015-12-03T15:57:21+00:00</updated>
+  <updated>2015-12-11T01:23:42-02:00</updated>
   <id>http://cironunes.github.com/</id>
   <author>
     <name><![CDATA[Ciro Nunes]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[AngularJS: Melhores práticas - Parte II: Carregamento de scripts]]></title>
     <link href="http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento/"/>
-    <updated>2013-03-14T21:30:00+00:00</updated>
+    <updated>2013-03-14T21:30:00-03:00</updated>
     <id>http://cironunes.github.com/angularjs-melhores-praticas-parte-II-carregamento</id>
     <content type="html"><![CDATA[<p><img class="center" src="http://cironunes.github.com/images/posts/cover-bestpratices-loading.jpg"></p>
 
@@ -154,7 +154,7 @@
   <entry>
     <title type="html"><![CDATA[AngularJS: Melhores práticas - Parte I: Iniciando projetos]]></title>
     <link href="http://cironunes.github.com/angularjs-melhores-praticas-parte-I-bootstrap/"/>
-    <updated>2013-03-10T16:01:00+00:00</updated>
+    <updated>2013-03-10T16:01:00-03:00</updated>
     <id>http://cironunes.github.com/angularjs-melhores-praticas-parte-I-bootstrap</id>
     <content type="html"><![CDATA[<p><img class="center" src="http://cironunes.github.com/images/posts/cover-bestpratices-bootstrap.jpg"></p>
 
@@ -307,7 +307,7 @@ O <a href="http://yeoman.io">Yeoman</a> é uma ferramenta para facilitar nosso w
   <entry>
     <title type="html"><![CDATA[Tunando o browser com o AngularJS]]></title>
     <link href="http://cironunes.github.com/tunando-o-browser-com-o-angularjs/"/>
-    <updated>2013-03-02T07:58:00+00:00</updated>
+    <updated>2013-03-02T07:58:00-03:00</updated>
     <id>http://cironunes.github.com/tunando-o-browser-com-o-angularjs</id>
     <content type="html"><![CDATA[<p>No início do ano, a convite do meu amigo <a href="http://twitter.com/felquis">@felquis</a> participei de um <a href="http://devcastbrasil.com">DevCast</a> para mostrar como o <a href="http://angularjs.org">AngularJS</a> veio para tornar o desenvolvimento de aplicações web simples e divertido.</p>
 
