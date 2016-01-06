@@ -1,0 +1,12 @@
+.cn-wrapper {
+  margin: 0 auto;
+  max-width: 422px; }
+  @media only screen and (max-width: 442px) {
+    .cn-wrapper {
+      padding: 0 20px; } }
+  @media only screen and (min-width: 764px) {
+    .cn-wrapper {
+      max-width: 724px; } }
+  @media only screen and (min-width: 980px) {
+    .cn-wrapper {
+      max-width: 940px; } }
