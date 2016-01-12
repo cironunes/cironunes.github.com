@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../cn-social-media/cn-social-media'], function(exports_1) {
+System.register(['angular2/core', '../cn-social-media/cn-social-media', '../../directives/cn-scroll'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', '../cn-social-media/cn-social-media'], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, cn_social_media_1;
+    var core_1, cn_social_media_1, cn_scroll_1;
     var CnGreeting;
     return {
         setters:[
@@ -17,6 +17,9 @@ System.register(['angular2/core', '../cn-social-media/cn-social-media'], functio
             },
             function (cn_social_media_1_1) {
                 cn_social_media_1 = cn_social_media_1_1;
+            },
+            function (cn_scroll_1_1) {
+                cn_scroll_1 = cn_scroll_1_1;
             }],
         execute: function() {
             CnGreeting = (function () {
@@ -28,7 +31,7 @@ System.register(['angular2/core', '../cn-social-media/cn-social-media'], functio
                         templateUrl: 'app/components/cn-greeting/cn-greeting.html',
                         styleUrls: ['app/components/cn-greeting/cn-greeting.css'],
                         providers: [],
-                        directives: [cn_social_media_1.CnSocialMedia],
+                        directives: [cn_social_media_1.CnSocialMedia, cn_scroll_1.CnScroll],
                         pipes: []
                     }), 
                     __metadata('design:paramtypes', [])

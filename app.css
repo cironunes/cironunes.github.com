@@ -108,6 +108,12 @@ body {
   background-color: #fff;
   color: #2f2f2f; }
 
+a svg {
+  transition: all .2s ease-in-out; }
+
+a:hover svg {
+  transform: scale(1.2); }
+
 .icon {
   width: 64px;
   height: 64px;
@@ -126,20 +132,34 @@ body {
 .icon-inverse {
   fill: #fff; }
 
+.cn-loading {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; }
+
+.cn-hidden {
+  visibility: hidden; }
+
 .cn-header {
   position: absolute;
+  z-index: 1;
   width: 100%;
   padding: 20px 0; }
 
 .cn-navigation {
   word-spacing: 20px; }
   .cn-navigation .router-link-active {
-    padding-bottom: 2px;
     border-bottom: 5px solid #fae34c; }
   .cn-navigation a {
+    padding-bottom: 2px;
     font-size: 14px;
     text-decoration: none;
     color: #2f2f2f; }
+  .cn-navigation a:hover {
+    border-bottom: 5px solid #fae34c; }
 
 .cn-footer {
   background-color: #2b2b2b;
@@ -176,7 +196,7 @@ body {
   text-decoration: none;
   font-size: 14px;
   font-weight: 700;
-  padding: 10px 30px;
+  padding: 10px 18px;
   border-radius: 3px; }
 
 .btn--secondary {

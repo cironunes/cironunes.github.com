@@ -48,12 +48,12 @@
 
 .cn-upcoming {
   text-align: center; }
-  @media only screen and (min-width: 764px) {
+  @media only screen and (min-width: 980px) {
     .cn-upcoming {
       display: flex;
       text-align: left; } }
 
-@media only screen and (max-width: 764px) {
+@media only screen and (max-width: 980px) {
   .cn-upcoming__column-right {
     display: block !important; } }
 
@@ -72,7 +72,7 @@
   font-size: 14px;
   display: block;
   margin-bottom: 20px; }
-  @media only screen and (min-width: 764px) {
+  @media only screen and (min-width: 980px) {
     .cn-upcoming__ww {
       margin-bottom: 0; } }
 
@@ -82,7 +82,7 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 5px; }
-  @media only screen and (min-width: 764px) {
+  @media only screen and (min-width: 980px) {
     .cn-upcoming__goto {
       margin-bottom: 0;
       margin-right: 40px; } }

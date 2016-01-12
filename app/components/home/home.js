@@ -31,6 +31,12 @@ System.register(['angular2/core', '../cn-greeting/cn-greeting', '../cn-what/cn-w
             HomeCmp = (function () {
                 function HomeCmp() {
                 }
+                HomeCmp.prototype.ngOnInit = function () {
+                    document.querySelector('.cn-loading').classList.add('cn-hidden');
+                };
+                HomeCmp.prototype.ngOnDestroy = function () {
+                    document.querySelector('.cn-loading').classList.remove('cn-hidden');
+                };
                 HomeCmp = __decorate([
                     core_1.Component({
                         selector: 'home',

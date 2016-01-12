@@ -1,340 +1,50 @@
-
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!doctype html>
+<html>
 <head>
   <meta charset="utf-8">
-  <title>Ciro Nunes</title>
-  <meta name="author" content="Ciro Nunes">
-
-  
-  <meta name="description" content="Baixar recursos (HTML, CSS, scripts, imagens) tem um custo alto em termos de performance das aplicações. Principalmente scripts, que podem parar &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
+  <title>Ciro Nunes | Frontend Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://cironunes.github.com/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-   <link href="/stylesheets/data-table.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Ciro Nunes" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-38962478-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
+  <base href=".">
+  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900" type="text/css">
+  <link rel="stylesheet" href="vendor/normalize.css/normalize.css">
+  <link rel="stylesheet" href="app.css">
 </head>
-
-<body   >
-  <header role="banner"><hgroup>
-</hgroup>
-
-</header>
-  <!-- <nav role="navigation"><ul class="subscription" data-subscription="rss email">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+<body>
+  <cironunes-app>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#2f2f2f" style="position: absolute; left: 50%; top: 50%; bottom: 50%; right: 50%;">
+      <circle transform="translate(8 0)" cx="0" cy="16" r="0"> 
+        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0"
+          keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+      </circle>
+      <circle transform="translate(16 0)" cx="0" cy="16" r="0"> 
+        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3"
+          keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+      </circle>
+      <circle transform="translate(24 0)" cx="0" cy="16" r="0"> 
+        <animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6"
+          keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" />
+      </circle>
+    </svg>
+  </cironunes-app>
   
-    <li><a href="ciroanunes@gmail.com" rel="subscribe-email" title="subscribe via email">Email</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:cironunes.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav> -->
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/angularjs-melhores-praticas-parte-II-carregamento/">AngularJS: Melhores práticas - Parte II: Carregamento de scripts</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-14T21:30:00-03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2013</time>
-        
-         | <a href="/angularjs-melhores-praticas-parte-II-carregamento/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="center" src="/images/posts/cover-bestpratices-loading.jpg"></p>
-
-<p>Baixar recursos (HTML, CSS, scripts, imagens) tem um custo alto em termos de performance das aplicações. Principalmente scripts, que podem parar completamente o carregamento da página enquanto são baixados e executados pela engine de JavaScript do browser.</p>
-
-<p>Nesta parte vamos focar em estratégias para carregá-los e como a flexibilidade do Angular nos possibilita fazê-lo de forma performática.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/angularjs-melhores-praticas-parte-II-carregamento/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/angularjs-melhores-praticas-parte-I-bootstrap/">AngularJS: Melhores práticas - Parte I: Iniciando projetos</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-10T16:01:00-03:00" pubdate data-updated="true">Mar 10<span>th</span>, 2013</time>
-        
-         | <a href="/angularjs-melhores-praticas-parte-I-bootstrap/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="center" src="/images/posts/cover-bestpratices-bootstrap.jpg"></p>
-
-<p>Melhores práticas são como fórmulas mágicas para ajudar na organização do seu projeto, documentadas por desenvolvedores que tiveram sucesso usando elas em diversas situações.</p>
-
-<p>Nesta série vou compartilhar algumas técnicas que tornam meu trabalho cada vez mais simples e divertido.</p>
-
-<p>Essas práticas foram baseadas <a href="http://www.youtube.com/watch?v=ZhfUv0spHCY&amp;feature=g-user-u">neste vídeo</a> e nas minhas experiências diárias.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/angularjs-melhores-praticas-parte-I-bootstrap/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/tunando-o-browser-com-o-angularjs/">Tunando o browser com o AngularJS</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-02T07:58:00-03:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2013</time>
-        
-         | <a href="/tunando-o-browser-com-o-angularjs/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>No início do ano, a convite do meu amigo <a href="http://twitter.com/felquis">@felquis</a> participei de um <a href="http://devcastbrasil.com">DevCast</a> para mostrar como o <a href="http://angularjs.org">AngularJS</a> veio para tornar o desenvolvimento de aplicações web simples e divertido.</p>
-
-<p>Confira o <a href="http://devcastbrasil.com/videos/tunando-o-browser-com-angularjs/">post sobre este DevCast no DevCast Brasil</a></p>
-
-<p>Confira o vídeo abaixo:</p>
-
-<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/Ph9hVLTmF2E "></iframe></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-    <div style="margin-top: 5px; text-align: center;">
-        <img src="/images/me.jpg" alt="">
-    </div>
-
-    <h1 class="brand">
-    <a href="/">
-      Ciro Nunes
-      <small>Front-end Engineer</small>
-    </a>
-    </h1>
-
-    <ul class="nav-main">
-      <li>
-        <a href="/">Blog</a>
-      </li>
-
-      <li>
-        <a href="/talks">Talks</a>
-      </li>
-
-      <li>
-        <a href="/about">About Me</a>
-      </li>
-
-      <li>
-        <a href="/archives">Archives</a>
-      </li>
-    </ul>
-</section>
-
-<section>
- <ul id="recent_posts" style="text-align: center;">
-      <li class="post" style="border: 0; box-shadow: none;">
-      <a href="http://github.com/cironunes/"><img width="59" src="/images/metro-github.png"></a>
-      <a href="http://twitter.com/cironunesdev/"><img width="59" src="/images/metro-twitter.png"></a>
-      <a href="http://www.linkedin.com/profile/view?id=112850172&authType=name&authToken=N_xi&locale=pt_BR&pvs=pp&trk=ppro_viewmore"><img width="59" src="/images/metro-linkedin.png"></a>
-      <a href="https://plus.google.com/102454271023172372383?rel=author"><img width="59" src="/images/metro-gplus.png"></a>
-      <a href="http://facebook.com/cironunesdev/"><img width="59" src="/images/metro-facebook.png"></a>
-      <a href="http://cironunes.github.com/archives/"><img width="59" src="/images/metro-archive.png"></a>
-      <a href="http://cironunes.github.com/atom.xml"><img width="59" src="/images/metro-rss.png"></a>
-      <a href="mailto:ciroanunes@gmail.com"><img width="59" src="/images/metro-email.png"></a>
-      </li>
-  </ul>
-</section>
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Ciro Nunes -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'cironunes';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
+  <script src="vendor/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="vendor/systemjs/dist/system.src.js"></script>
+  <script src="vendor/rxjs/bundles/Rx.js"></script>
+  <script src="vendor/angular2/bundles/angular2.dev.js"></script>
+  <script src="vendor/angular2/bundles/http.dev.js"></script>
+  <script src="vendor/angular2/bundles/router.dev.js"></script>
+  <script>
+    System.config({
+      packages: {
+        app: {
+          format: 'register',
+          defaultExtension: 'js'
+        }
+      }
+    });
+    System.import('app.js').then(null, console.error.bind(console));
   </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
 </body>
 </html>

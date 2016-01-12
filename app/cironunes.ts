@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, Route, ROUTER_DIRECTIVES} from 'angular2/router';
+import {RouteConfig, Route, ROUTER_DIRECTIVES, OnActivate} from 'angular2/router';
 
 import {HomeCmp} from './components/home/home';
 import {TalksCmp} from './components/talks/talks';

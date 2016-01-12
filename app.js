@@ -15,6 +15,7 @@ System.register(['angular2/core', 'angular2/platform/browser', 'angular2/router'
                 cironunes_1 = cironunes_1_1;
             }],
         execute: function() {
+            core_1.enableProdMode();
             browser_1.bootstrap(cironunes_1.CironunesApp, [
                 router_1.ROUTER_PROVIDERS, core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })
             ]);

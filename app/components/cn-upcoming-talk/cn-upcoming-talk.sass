@@ -10,17 +10,16 @@
   
 .cn-upcoming  
   text-align: center
-  @include respond-to(764)
+  @include respond-to(980)
     display: flex
     text-align: left
 
 .cn-upcoming__column-right
-  @include respond-to-inverse(764)
-    display: block !important
-  @include respond-to(980)
+  @include respond-to-inverse(980)
     @extend .grid-cell--full
     @extend .aligner
     @extend .aligner--right
+    display: block !important
 
 .cn-upcoming__pre
   font-size: 13px
@@ -37,7 +36,7 @@
   font-size: 14px
   display: block
   margin-bottom: 20px
-  @include respond-to(764)
+  @include respond-to(980)
     margin-bottom: 0
 
 .cn-upcoming__goto
@@ -46,7 +45,7 @@
     display: inline-block
     vertical-align: middle
     margin-right: 5px
-  @include respond-to(764)
+  @include respond-to(980)
     margin-bottom: 0
     margin-right: 40px
     

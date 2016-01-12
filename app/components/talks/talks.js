@@ -28,6 +28,12 @@ System.register(['angular2/core', '../cn-talk-list/cn-talk-list', '../cn-talk-fe
             TalksCmp = (function () {
                 function TalksCmp() {
                 }
+                TalksCmp.prototype.ngOnInit = function () {
+                    document.querySelector('.cn-loading').classList.add('cn-hidden');
+                };
+                TalksCmp.prototype.ngOnDestroy = function () {
+                    document.querySelector('.cn-loading').classList.remove('cn-hidden');
+                };
                 TalksCmp = __decorate([
                     core_1.Component({
                         selector: 'talks',
