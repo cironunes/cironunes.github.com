@@ -28,6 +28,7 @@ System.register(['angular2/core'], function(exports_1) {
                     var targetEl = document.querySelector(targetId);
                     var target = targetEl.getBoundingClientRect().top;
                     e.preventDefault();
+                    this.smoothScrollTo(document.documentElement, target, 1e3);
                     this.smoothScrollTo(document.body, target, 1e3);
                 };
                 /**
@@ -52,7 +53,7 @@ System.register(['angular2/core'], function(exports_1) {
                     var start_top = element.scrollTop;
                     var distance = target - start_top;
                     // based on http://en.wikipedia.org/wiki/Smoothstep
-                    var smooth_step = function (start, end, point) {
+                    function smoothStep(start, end, point) {
                         if (point <= start) {
                             return 0;
                         }
@@ -61,20 +62,20 @@ System.register(['angular2/core'], function(exports_1) {
                         }
                         var x = (point - start) / (end - start); // interpolation
                         return x * x * (3 - 2 * x);
-                    };
+                    }
                     return new Promise(function (resolve, reject) {
                         // This is to keep track of where the element's scrollTop is
                         // supposed to be, based on what we're doing
                         var previous_top = element.scrollTop;
                         // This is like a think function from a game loop
-                        var scroll_frame = function () {
+                        function scrollFrame() {
                             if (element.scrollTop != previous_top) {
                                 reject("interrupted");
                                 return;
                             }
                             // set the scrollTop for this frame
                             var now = Date.now();
-                            var point = smooth_step(start_time, end_time, now);
+                            var point = smoothStep(start_time, end_time, now);
                             var frameTop = Math.round(start_top + (distance * point));
                             element.scrollTop = frameTop;
                             // check if we're done!
@@ -92,10 +93,10 @@ System.register(['angular2/core'], function(exports_1) {
                             }
                             previous_top = element.scrollTop;
                             // schedule next frame for execution
-                            setTimeout(scroll_frame, 0);
-                        };
+                            setTimeout(scrollFrame, 0);
+                        }
                         // boostrap the animation process
-                        setTimeout(scroll_frame, 0);
+                        setTimeout(scrollFrame, 0);
                     });
                 };
                 CnScroll = __decorate([

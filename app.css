@@ -112,7 +112,8 @@ a svg {
   transition: all .2s ease-in-out; }
 
 a:hover svg {
-  transform: scale(1.2); }
+  transform: scale(1.2);
+  transform-origin: 50% 50%; }
 
 .icon {
   width: 64px;

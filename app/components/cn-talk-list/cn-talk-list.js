@@ -23,6 +23,18 @@ System.register(['angular2/core', 'angular2/common'], function(exports_1) {
                 function CnTalkList() {
                     this.talks = [
                         {
+                            title: 'Angular 2 & the Single Immutable State Tree',
+                            time: 'Feb 18th - 2016, Amsterdam, Netherlands',
+                            slidedeck: 'https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree',
+                            photo: 'assets/talk-a2-sist.png'
+                        },
+                        {
+                            title: 'Upgrading from 1.x',
+                            time: 'Jan 20th - 2016, Belo Horizonte - MG, Brazil',
+                            slidedeck: 'https://speakerdeck.com/cironunes/upgrading-from-1-dot-x',
+                            photo: 'assets/talk-a2-upgrading.png'
+                        },
+                        {
                             title: 'O que você precisa saber sobre o Angular 2',
                             time: 'Nov 28th - 2015, Aracaju - AL, Brazil',
                             slidedeck: 'https://speakerdeck.com/cironunes/o-que-voce-precisa-saber-sobre-o-angular-2',
