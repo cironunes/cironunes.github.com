@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-505.000000, -506.000000)" stroke="#FFF" stroke-width="2">
+            <path d="M512,508.236068 L506.618034,519 L517.381966,519 L512,508.236068 Z" id="Triangle" transform="translate(512.000000, 513.000000) scale(1, -1) translate(-512.000000, -513.000000) "></path>
+        </g>
+    </g>
+</svg>
