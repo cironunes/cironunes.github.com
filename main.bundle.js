@@ -98,6 +98,16 @@ var AboutComponent = (function () {
             //   story: 'That was really awesome!'
             // },
             {
+                title: 'DevFest RO 17',
+                full_title: 'GDG DevFest Romania 2017',
+                where: 'Iasi, Romania',
+                when: '17 November 2017',
+                thumbnail_position: '-1020px -240px',
+                photo: 'assets/about/devfest-romania17.jpg',
+                photo_position: '0',
+                story: "\n        <p class=\"cn-section__text\">\n          August 21, we received the invitation from the organization to speak at the GDG DevFest Romania 2017,\n          at the lovely city of Iasi, November 17. We accepted the invitation and took the oportunity to extend our stay\n          and have our vacation there. My wife, <a class=\"cn-anchor\" href=\"https://twitter.com/paticnunes\">@paticnunes</a>, went with me! \uD83D\uDC9A\n        </p>\n\n        <h3 class=\"cn-section__highlight\">The trip</h3>\n        <p class=\"cn-section__text\">\n          We were supposed to arrive one day before the conference and go for the spakers dinner, but\n          we lost the first flight of the trip. Because of that, we arrived late and didn't have\n          much time to rest before the conference. However, that was the only bad part of the trip.\n        </p>\n\n        <p class=\"cn-section__text\">\n          The best part was to spend some time with awesome people like:\n          <a class=\"cn-anchor\" href=\"https://twitter.com/r31gN_\">@r31gN_</a>,\n          <a class=\"cn-anchor\" href=\"https://twitter.com/dcifuen\">@dcifuen</a>. Big reach out to Vlad\n          that took us to see the city and spent time discussing different subjects.\n        </p>\n\n        <h3 class=\"cn-section__highlight\">The conference</h3>\n        <p class=\"cn-section__text\">\n          Initially we prepared a presentation about animations, but 3 days before the conference,\n          the organizers asked if we could give one more presentation to cover one of the speakers that\n          couldn't make it. As we love challenges, we accepted it!\n        </p>\n\n        <h3 class=\"cn-section__highlight\">The talks</h3>\n\n        <h3 class=\"cn-section__title\">Animating Angular apps</h3>\n        <p class=\"cn-section__text\">\n          Animations are always exciting. In this talk we saw how to create animations using Angular that not only\n          make the applications more fun, but also easier.\n        </p>\n\n        <div class=\"cn-space--bottom\">\n          <div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 65.2103%;\">\n            <iframe\n              src=\"//speakerdeck.com/player/1af912ef144241e881ad39ef90b085f2\"\n              style=\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\" allowfullscreen scrolling=\"no\"></iframe>\n          </div>\n        </div>\n\n        <h3 class=\"cn-section__title\">Sweet Angular, good forms never seem so good</h3>\n        <p class=\"cn-section__text\">\n          In this talk we learned how to use the two different modules for creating forms in Angular,\n          template and model-driven.\n        </p>\n\n        <div style=\"left: 0; width: 100%; height: 0; position: relative; padding-bottom: 83.9419%;\">\n          <iframe\n            src=\"//speakerdeck.com/player/abba92b800004c8cac856c56dccd1b1f\"\n            style=\"border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;\" allowfullscreen scrolling=\"no\"></iframe>\n        </div>\n      "
+            },
+            {
                 title: 'First talk',
                 full_title: 'My first talk ever was at a meetup in Brazil',
                 where: 'Rio de Janeiro, Brazil',
@@ -696,7 +706,7 @@ HomeModule = __decorate([
 /***/ "../../../../../src/app/home/what-i-do/what-i-do.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper text-center\">\n  <h1 class=\"cn-section__title cn-space--top\" appAppear (appear)=\"onAppear()\">What do I do?</h1>\n  <h2 class=\"cn-section__subtitle\">Learn, create, share, repeat</h2>\n  <p class=\"cn-section__text\">\n    I’m <em>Frontend Engineer</em>. My daily job is to research, improve my skills and develop solutions\n    to my costumers.\n  </p>\n  <p class=\"cn-section__text\">\n    The open source community makes it much easier for me with free tools and\n    knowledge, so I try to make it up for them by sharing what I learn in my blog and speaking at\n    conferences.\n  </p>\n\n  <div [@appear]=\"appearState\">\n    <div class=\"nav nav--grid cn-animation-container\">\n      <div class=\"nav__item cn-animation-item\" *ngFor=\"let conference of conferences\">\n        <div class=\"cn-card {{ conference.className }}\" [@child]=\"appearState\">\n          <img class=\"cn-card__image\" [src]=\"conference.image\" [alt]=\"conference.name\">\n          <div class=\"cn-card__back\">\n            <h1 class=\"cn-card__back__title\">{{ conference.name }}</h1>\n            <p class=\"cn-card__back__description\" *ngIf=\"conference.talk\">Talk: {{ conference.talk }}</p>\n            <a class=\"cn-btn-inline\" [href]=\"conference.resources.slides\" *ngIf=\"conference.resources?.slides\">slides</a>\n            <a class=\"cn-btn-inline\" [href]=\"conference.resources.video\" *ngIf=\"conference.resources?.video\">video</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <ul class=\"nav cn-footer__nav\">\n    <!-- <li>\n      <button class=\"cn-btn\" [routerLink]=\"['/conference-speaking']\">All my talks</button>\n    </li> -->\n    <li>\n      <a class=\"cn-btn-inline\" href=\"https://speakerdeck.com/cironunes\">\n        <img src=\"assets/icons/speakerdeck.png\" alt=\"\">\n        Check out my slides\n      </a>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<div class=\"wrapper text-center\">\n  <h1 class=\"cn-section__title cn-space--top\" appAppear (appear)=\"onAppear()\">What do I do?</h1>\n  <h2 class=\"cn-section__subtitle\">Learn, create, share, repeat</h2>\n  <p class=\"cn-section__text\">\n    I’m <em>Frontend Engineer</em>. My daily job is to research, improve my skills and develop solutions\n    to my costumers.\n  </p>\n  <p class=\"cn-section__text\">\n    The open source community makes it much easier for me with free tools and\n    knowledge, so I try to make it up for them by sharing what I learn in my blog and speaking at\n    conferences.\n  </p>\n\n  <div [@appear]=\"appearState\">\n    <div class=\"nav nav--grid cn-animation-container\">\n      <div class=\"nav__item cn-animation-item\" *ngFor=\"let conference of conferences\">\n        <div class=\"cn-card {{ conference.className }}\" [@child]=\"appearState\">\n          <img class=\"cn-card__image\" [src]=\"conference.image\" [alt]=\"conference.name\">\n          <span *ngIf=\"conference.description\">Your conference</span>\n          <div class=\"cn-card__back\">\n            <h1 class=\"cn-card__back__title\">{{ conference.name }}</h1>\n            <p class=\"cn-card__back__description\" *ngIf=\"conference.talk\">Talk: {{ conference.talk }}</p>\n            <a class=\"cn-btn-inline\" [href]=\"conference.resources.slides\" *ngIf=\"conference.resources?.slides\">slides</a>\n            <a class=\"cn-btn-inline\" [href]=\"conference.resources.video\" *ngIf=\"conference.resources?.video\">video</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <ul class=\"nav cn-footer__nav\">\n    <!-- <li>\n      <button class=\"cn-btn\" [routerLink]=\"['/conference-speaking']\">All my talks</button>\n    </li> -->\n    <li>\n      <a class=\"cn-btn-inline\" href=\"https://speakerdeck.com/cironunes\">\n        <img src=\"assets/icons/speakerdeck.png\" alt=\"\">\n        Check out my slides\n      </a>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -729,7 +739,7 @@ var WhatIDoComponent = (function () {
                 }
             },
             {
-                description: 'Invite me to your conference',
+                description: 'Your conference',
                 image: 'assets/icons/plus.svg',
                 className: 'cn-card--dashed your'
             },
@@ -1397,8 +1407,13 @@ var _a, _b, _c, _d;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: true
+    production: false
 };
 //# sourceMappingURL=environment.js.map
 
